@@ -40,7 +40,8 @@ export class AsyncCounterEffects {
 
   // TODO: decrementAsyncCounter$
   //    fetch counterEntity using counterValuesService.find(id)
-  //    update counterEntity using counterValuesService.update(id, {value: 456})
+  //    calculate nextValue = entity.value - decBy
+  //    update counterEntity using counterValuesService.update(id, {value: nextValue})
 
   constructor(
     private actions$: Actions,
