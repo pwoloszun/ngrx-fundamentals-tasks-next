@@ -1,5 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { produce } from 'immer';
+import { cloneDeep } from 'lodash';
 
 import * as actions from './counter.actions';
 
@@ -23,20 +24,18 @@ const counterReducer = createReducer(
 
   on(actions.incrementCounter, (state, action) => {
     const { incBy } = action;
-    const nextState = {
-      ...state,
-      value: state.value + incBy
-    };
+    const nextState = produce(state, (draft) => {
+      draft.value = state.value + incBy;
+    });
     return nextState;
   }),
 
   on(actions.decrementCounter, (state, action) => {
     const { decBy, timestamp } = action;
-    const nextState: SliceState = {
-      ...state,
-      value: state.value - decBy,
-      updatedAt: timestamp
-    };
+    const nextState = produce(state, (draft) => {
+      draft.value = state.value - decBy;
+      draft.updatedAt = timestamp;
+    });
     return nextState;
   }),
 
