@@ -11,6 +11,10 @@ export const incrementCounter = createAction(
   props<{ incBy: number; }>()
 );
 
-// TODO decrementCounter
+// TODO 1 decrementCounter
+export const decrementCounter = createAction(
+  CounterActionTypes.DecrementCounter,
+  props<{ decBy: number; timestamp: number; }>()
+);
 
 // TODO resetCounter

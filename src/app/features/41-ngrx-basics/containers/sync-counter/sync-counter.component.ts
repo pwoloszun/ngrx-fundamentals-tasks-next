@@ -19,7 +19,9 @@ export class SyncCounterComponent {
   value$ = this.store.pipe(
     select((state: ApplicationState) => state.counter.value)
   );
-  updatedAt$ = of(123456789);
+  updatedAt$ = this.store.pipe(
+    select((state: ApplicationState) => state.counter.updatedAt)
+  );
   squareValue$ = of(456);
 
   constructor(private store: Store<any>) { }
@@ -34,7 +36,11 @@ export class SyncCounterComponent {
   decrement() {
     const decBy = 5;
     const timestamp = Date.now();
-    // TODO
+    const action = actions.decrementCounter({
+      decBy,
+      timestamp
+    });
+    this.store.dispatch(action);
   }
 
   reset() {

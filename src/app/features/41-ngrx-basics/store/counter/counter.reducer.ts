@@ -30,7 +30,17 @@ const counterReducer = createReducer(
     return nextState;
   }),
 
-  // TODO: handle decrementCounter
+  on(actions.decrementCounter, (state, action) => {
+    const { decBy, timestamp } = action;
+    const nextState: SliceState = {
+      ...state,
+      value: state.value - decBy,
+      updatedAt: timestamp
+    };
+    return nextState;
+  }),
+
+  // TODO 3: handle decrementCounter
 
   // TODO: handle resetCounter
 
