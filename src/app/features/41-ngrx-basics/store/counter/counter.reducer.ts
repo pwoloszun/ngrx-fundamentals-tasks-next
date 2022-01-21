@@ -3,7 +3,7 @@ import { produce } from 'immer';
 
 import * as actions from './counter.actions';
 
-export const counterFeatureKey = 'counter';
+export const counterFeatureKey = 'gggHhh';
 
 // design state shape
 export interface SliceState {

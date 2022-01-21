@@ -7,11 +7,13 @@ const selectFeature = (state: ApplicationState) => {
 };
 
 export const selectCounterValue = (state: ApplicationState) => {
-  return state.counter.value;
+  const stateSlice = selectFeature(state);
+  return stateSlice.value;
 };
 
 export const selectCounterUpdatedAt = (state: ApplicationState) => {
-  return state.counter.updatedAt;
+  const stateSlice = selectFeature(state);
+  return stateSlice.updatedAt;
 };
 
 // TODO
