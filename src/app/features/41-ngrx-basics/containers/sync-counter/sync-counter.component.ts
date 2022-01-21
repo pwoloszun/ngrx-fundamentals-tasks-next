@@ -14,15 +14,23 @@ import {
 })
 export class SyncCounterComponent {
 
+  // value$ = this.store.pipe(
+  //   select(selectors.selectCounterValue)
+  // );
   value$ = this.store.pipe(
-    select(selectors.selectCounterValue)
+    select(selectors.selectCunterValueFactory(10))
   );
+
   updatedAt$ = this.store.pipe(
     select(selectors.selectCounterUpdatedAt)
   );
 
   formattedUpdatedAt$ = this.store.pipe(
     select(selectors.selectFormattedUpdatedAt)
+  );
+
+  user$ = this.store.pipe(
+    select(selectors.selectUserById_MEM(300))
   );
 
   squareValue$ = of(456);

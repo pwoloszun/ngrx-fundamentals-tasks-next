@@ -1,5 +1,7 @@
 <h3>SyncCounter</h3>
 
+<h1>User {{ user$ | async | json }}</h1>
+
 <nts-counter [value]="value$ | async"
              [updatedAt]="updatedAt$ | async"
              (increment)="increment()"

@@ -4,17 +4,29 @@ import { cloneDeep } from 'lodash';
 
 import * as actions from './counter.actions';
 
-export const counterFeatureKey = 'gggHhh';
+export const counterFeatureKey = 'counter';
+
+interface User {
+  id: number;
+  name: string;
+}
 
 // design state shape
 export interface SliceState {
   value: number;
   updatedAt: number | null;
+  users: User[];
 }
 
 export const initialState: SliceState = {
   value: 997,
   updatedAt: null,
+
+  users: [
+    { id: 100, name: 'bob' },
+    { id: 200, name: 'ed' },
+    { id: 300, name: 'kate' },
+  ]
 };
 
 
