@@ -21,5 +21,16 @@ export const selectCounterUpdatedAt = (state: ApplicationState) => {
   return stateSlice.updatedAt;
 };
 
+export const selectFormattedUpdatedAt = createSelector(
+  [selectCounterUpdatedAt],
+  (updatedAt) => {
+    if (updatedAt !== null) {
+      return new Date(updatedAt).toISOString();
+    } else {
+      return '';
+    }
+  }
+);
+
 // TODO
 // export const selectFormattedUpdatedAt = null;

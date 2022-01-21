@@ -21,8 +21,9 @@ export class SyncCounterComponent {
     select(selectors.selectCounterUpdatedAt)
   );
 
-  // new Date(122123123).toISOString();
-  formattedUpdatedAt$ = of('2022-01-21Z11:57:11.00');
+  formattedUpdatedAt$ = this.store.pipe(
+    select(selectors.selectFormattedUpdatedAt)
+  );
 
   squareValue$ = of(456);
 
