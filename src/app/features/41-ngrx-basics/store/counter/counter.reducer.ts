@@ -22,9 +22,12 @@ const counterReducer = createReducer(
   initialState,
 
   on(actions.incrementCounter, (state, action) => {
-    // TODO
-    const nextState = {};
-    return state;
+    const { incBy } = action;
+    const nextState = {
+      ...state,
+      value: state.value + incBy
+    };
+    return nextState;
   }),
 
   // TODO: handle decrementCounter

@@ -25,7 +25,15 @@ export class SyncCounterComponent {
   constructor(private store: Store<any>) { }
 
   increment() {
-    // TODO
+    // const action = {
+    //   type: '[Counter] gggg',
+    //   ggg: 123,
+    //   hhhJjj: 'qq'
+    // };
+    const action = actions.incrementCounter({
+      incBy: 10
+    });
+    this.store.dispatch(action);
   }
 
   decrement() {
