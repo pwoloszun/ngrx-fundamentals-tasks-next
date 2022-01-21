@@ -4,7 +4,8 @@
              [updatedAt]="updatedAt$ | async"
              (increment)="increment()"
              (decrement)="decrement()"
-             (reset)="reset()"
-></nts-counter>
+             (reset)="reset()"></nts-counter>
 
 <h3>Square: {{ squareValue$ | async }}</h3>
+
+<h1>Formatted date: {{ formattedUpdatedAt$ | async }}</h1>
