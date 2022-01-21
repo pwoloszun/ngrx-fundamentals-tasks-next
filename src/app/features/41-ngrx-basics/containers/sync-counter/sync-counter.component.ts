@@ -4,7 +4,6 @@ import { of } from 'rxjs';
 
 import {
   actions,
-  ApplicationState,
   selectors,
 } from '../../store/counter';
 
@@ -15,12 +14,11 @@ import {
 })
 export class SyncCounterComponent {
 
-  // TODO
   value$ = this.store.pipe(
-    select((state: ApplicationState) => state.counter.value)
+    select(selectors.selectCounterValue)
   );
   updatedAt$ = this.store.pipe(
-    select((state: ApplicationState) => state.counter.updatedAt)
+    select(selectors.selectCounterUpdatedAt)
   );
   squareValue$ = of(456);
 
