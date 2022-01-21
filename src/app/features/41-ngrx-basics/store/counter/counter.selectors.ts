@@ -6,10 +6,15 @@ const selectFeature = (state: ApplicationState) => {
   return state[counterFeatureKey];
 };
 
-export const selectCounterValue = (state: ApplicationState) => {
+export const selectCounterValue_OLD = (state: ApplicationState) => {
   const stateSlice = selectFeature(state);
   return stateSlice.value;
 };
+
+export const selectCounterValue = createSelector(
+  [selectFeature],
+  (stateSlice) => stateSlice.value
+);
 
 export const selectCounterUpdatedAt = (state: ApplicationState) => {
   const stateSlice = selectFeature(state);
