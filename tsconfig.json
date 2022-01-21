@@ -33,7 +33,8 @@
     }
   },
   "exclude": [
-    "cypress/**/*"
+    "cypress/**/*",
+    "docs/**/*"
   ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

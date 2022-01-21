@@ -15,62 +15,41 @@ export class TodosEffects {
 
   loadManyTodos$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(actions.TodosActionTypes.LoadManyTodosRequest),
-      mergeMap((action) => {
-        return this.todosService.getAll();
-      }),
-      map((todos) => {
-        return actions.loadManyTodosSuccess({ todos });
+      // TODO
+      ofType(actions.loadManyTodosRequest),
+      map(() => {
+        return { type: 'TODO' };
       })
     );
-  });
+  }, { dispatch: false });
 
-  deleteSingleTodo$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(actions.TodosActionTypes.DeleteSingleTodoRequest),
-      mergeMap((action) => {
-        const { id } = action;
-        return this.todosService.remove({ id, title: '' });
-      }),
-      map((id: number) => {
-        return actions.deleteSingleTodoSuccess({ id });
-      })
-    );
-  });
+  // TODO
+  // deleteSingleTodo$ = createEffect(() => {
+  //   return this.actions$.pipe(
+  //     map(() => {
+  //       return { type: 'TODO' };
+  //     })
+  //   );
+  // }, { dispatch: false });
 
-  createSingleTodo$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(actions.TodosActionTypes.CreateTodoRequest),
-      concatMap((action) => {
-        const { todoData } = action;
-        const { title } = todoData;
-        this.snackBarRef.open(`Creating Todo titled "${title}"`);
-        return this.todosService.create(todoData);
-      }),
-      map((createdTodo: Todo) => {
-        this.snackBarRef.dismiss();
-        return actions.createTodoSuccess({ todo: createdTodo });
-      })
-    );
-  });
 
-  optimisticUpdateSingleTodo$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(actions.TodosActionTypes.OptimisticUpdateSingleTodoRequest),
-      mergeMap((action) => {
-        const { todoUpdate } = action;
-        const { id, changes } = todoUpdate;
-        return this.todosService.update(id, changes);
-      }),
-      map((todo: Todo) => {
-        const todoUpdate = {
-          id: todo.id,
-          changes: todo,
-        };
-        return actions.optimisticUpdateSingleTodoSuccess({ todoUpdate });
-      }),
-    );
-  });
+  // TODO
+  // createSingleTodo$ = createEffect(() => {
+  //   // TODO: snackBarRef.open(`Creating Todo titled "${title}"`);
+  //   return this.actions$.pipe(
+  //     // TODO
+  //     map(() => {
+  //       return { type: 'TODO' };
+  //     })
+  //   );
+  // }, { dispatch: false });
+
+  // TODO
+  // optimisticUpdateSingleTodo$ = createEffect(() => {
+  //   return this.actions$.pipe(
+  //     // TODO
+  //   );
+  // }, { dispatch: false });
 
   constructor(
     private actions$: Actions,

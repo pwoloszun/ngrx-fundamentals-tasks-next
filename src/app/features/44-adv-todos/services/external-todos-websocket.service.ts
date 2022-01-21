@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { combineLatest } from 'rxjs';
+import { combineLatest, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { shuffle } from 'lodash';
 import { company } from 'faker';
@@ -24,12 +24,11 @@ const delayInSec = {
 export class ExternalTodosWebsocketService {
   private intervalId: any;
 
-  private allTodos$ = this.store.pipe(
-    select(selectors.selectTodosAll)
-  );
-  private allStatuses$ = this.store.pipe(
-    select(selectors.selectTodosStatusesAll)
-  );
+  // TODO
+  private allTodos$ = of([]);
+  // TODO
+  private allStatuses$ = of([]);
+
   private notBlockedTodos$ = combineLatest([
     this.allTodos$,
     this.allStatuses$
@@ -85,22 +84,17 @@ export class ExternalTodosWebsocketService {
       id,
       changes: this.generateTodoData()
     };
-    this.store.dispatch(actions.optimisticUpdateSingleTodoRequest({
-      todoUpdate
-    }));
+
+    // TODO: optimistic update
   }
 
   private createFakeTodo() {
-    this.store.dispatch(actions.createTodoRequest({
-      todoData: this.generateTodoData()
-    }));
+    // TODO: create todo req
   }
 
   private deleteFakeTodo() {
     const { id } = shuffle(this.notBlocked)[0];
-    this.store.dispatch(actions.deleteSingleTodoRequest({
-      id
-    }));
+    // TODO: delete todo with id
   }
 
   private generateTodoData() {

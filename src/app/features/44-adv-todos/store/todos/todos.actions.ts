@@ -11,14 +11,12 @@ export enum TodosActionTypes {
   DeleteSingleTodoRequest = '[Todos] DeleteSingleTodoRequest',
   DeleteSingleTodoSuccess = '[Todos] DeleteSingleTodoSuccess',
 
-  OptimisticUpdateSingleTodoRequest = '[Todos] OptimisticUpdateSingleTodoRequest',
-  OptimisticUpdateSingleTodoSuccess = '[Todos] OptimisticUpdateSingleTodoSuccess',
-
-  StartEditTodo = '[Todos] StartEditTodo',
-  EndEditTodo = '[Todos] EndEditTodo',
-
   CreateTodoRequest = '[Todos] CreateTodoRequest',
   CreateTodoSuccess = '[Todos] CreateTodoSuccess',
+
+  // TODO: update action types
+
+  // TODO: edition action types
 
 }
 
@@ -28,45 +26,30 @@ export const loadManyTodosRequest = createAction(
 
 export const loadManyTodosSuccess = createAction(
   TodosActionTypes.LoadManyTodosSuccess,
-  props<{ todos: Todo[] }>()
+  // TODO
 );
 
 export const deleteSingleTodoRequest = createAction(
   TodosActionTypes.DeleteSingleTodoRequest,
-  props<{ id: number }>()
+  // TODO
 );
 
 export const deleteSingleTodoSuccess = createAction(
   TodosActionTypes.DeleteSingleTodoSuccess,
-  props<{ id: number }>()
+  // TODO
 );
 
-export const optimisticUpdateSingleTodoRequest = createAction(
-  TodosActionTypes.OptimisticUpdateSingleTodoRequest,
-  props<{ todoUpdate: Update<Todo> }>()
-);
 
-export const optimisticUpdateSingleTodoSuccess = createAction(
-  TodosActionTypes.OptimisticUpdateSingleTodoSuccess,
-  props<{ todoUpdate: Update<Todo> }>()
-);
+// TODO: update action types
 
-export const startEditSingleTodo = createAction(
-  TodosActionTypes.StartEditTodo,
-  props<{ id: number }>()
-);
-
-export const endEditSingleTodo = createAction(
-  TodosActionTypes.EndEditTodo,
-  props<{ id: number }>()
-);
+// TODO: edition action types
 
 export const createTodoRequest = createAction(
   TodosActionTypes.CreateTodoRequest,
-  props<{ todoData: TodoParams }>()
+  // TODO
 );
 
 export const createTodoSuccess = createAction(
   TodosActionTypes.CreateTodoSuccess,
-  props<{ todo: Todo }>()
+  // TODO
 );

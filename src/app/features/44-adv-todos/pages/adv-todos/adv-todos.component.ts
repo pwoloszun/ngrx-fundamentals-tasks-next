@@ -6,6 +6,7 @@ import { Todo, TodoParams } from '@api/models/todos.models';
 
 import { actions, selectors } from '../../store/todos';
 import { ExternalTodosWebsocketService } from '../../services/external-todos-websocket.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'nts-adv-todos',
@@ -14,15 +15,9 @@ import { ExternalTodosWebsocketService } from '../../services/external-todos-web
 })
 export class AdvTodosComponent implements OnInit, OnDestroy {
 
-  todos$ = this.store.pipe(
-    select(selectors.selectTodosAll),
-  );
-  statuses$ = this.store.pipe(
-    select(selectors.selectTodosStatusesAll),
-  );
-  isFetchingMany$ = this.store.pipe(
-    select(selectors.selectTodosIsFetchingMany),
-  );
+  todos$ = of([]);
+  statuses$ = of([]);;
+  isFetchingMany$ = of(true);
 
   constructor(
     private store: Store<any>,
@@ -31,39 +26,27 @@ export class AdvTodosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.store.dispatch(actions.loadManyTodosRequest());
-  }
-
-  ngOnDestroy(): void {
-    this.externalTodosWs.destroy();
+    // TODO: load todos
   }
 
   handleRemove(todo: Todo) {
-    this.store.dispatch(actions.deleteSingleTodoRequest({ id: todo.id }));
+    // TODO: delete todo
   }
 
   handleEdit(todo: Todo) {
-    this.store.dispatch(actions.startEditSingleTodo({ id: todo.id }));
+    // TODO: start editing
   }
 
   handleSaveEdit({ item, data }: any) {
-    const { id } = item;
-    const todoUpdate = {
-      id,
-      changes: data,
-    };
-    this.store.dispatch(actions.optimisticUpdateSingleTodoRequest({ todoUpdate }));
+    // TODO: optimistic update
   }
 
   handleCancelEdit(todo: Todo) {
-    this.store.dispatch(actions.endEditSingleTodo({ id: todo.id }));
+    // TODO: end editing
   }
 
   handleCreateTodo(data: TodoFormData) {
-    const { title, description } = data;
-    this.store.dispatch(actions.createTodoRequest({
-      todoData: { title, description }
-    }));
+    // TODO: create todo
   }
 
   handleStartExternalWS() {
@@ -73,4 +56,9 @@ export class AdvTodosComponent implements OnInit, OnDestroy {
   handleStopExternalWS() {
     this.externalTodosWs.close();
   }
+
+  ngOnDestroy(): void {
+    this.externalTodosWs.destroy();
+  }
+
 }
