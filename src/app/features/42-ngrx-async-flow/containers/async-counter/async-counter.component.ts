@@ -22,16 +22,11 @@ export class AsyncCounterComponent {
   constructor(private store: Store<any>) { }
 
   increment() {
-    const action = actions.incrementAsyncCounterRequest({ incBy: 10 });
-    this.store.dispatch(action);
+    // TODO: increment by 10
   }
 
   decrement() {
-    const action = actions.decrementAsyncCounterRequest({
-      id: this.id,
-      decBy: 5,
-    });
-    this.store.dispatch(action);
+    // TODO: decrement by 5
   }
 
   reset() {

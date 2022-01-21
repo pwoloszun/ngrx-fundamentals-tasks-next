@@ -22,42 +22,20 @@ export class AsyncCounterEffects {
 
   incrementAsyncCounter$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(actions.incrementAsyncCounterRequest),
-      delay(DELAY_IN_MS),
-      concatLatestFrom(() => this.asyncCounterValue$),
-      map(([action, value]) => {
-        const { incBy } = action;
-        const nextValue = value + incBy;
-        return actions.incrementAsyncCounterSuccess({ value: nextValue });
-      })
-      // TODO: error handling
-    );
-  });
+      // TODO
+      // filter only actions of type: actions.incrementAsyncCounterRequest
+      // delay
+      // concat with asyncCounterValue$
+      // calculate next value
+      // dispatch SUCC action
 
-  decrementAsyncCounter$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(actions.decrementAsyncCounterRequest),
-      // delay(DELAY_IN_MS),
-      exhaustMap((action) => {
-        const { id } = action;
-        // console.log('concatLatestFrom action:', action,);
-        return this.counterValuesService.find(id).pipe(
-          map((counterEntity) => [action, counterEntity])
-        );
-      }),
-      exhaustMap(([action, counterEntity]: any[]) => {
-        const { id, decBy } = action;
-        const params = {
-          value: counterEntity.value - decBy,
-        };
-        // console.log('action:', action, ' cv:', counterEntity);
-        return this.counterValuesService.update(id, params).pipe(
-          map((updatedEntity) => actions.decrementAsyncCounterSuccess({ value: updatedEntity.value }))
-        );
-      })
       // TODO: error handling
     );
-  });
+  }, { dispatch: false });
+
+  // TODO: decrementAsyncCounter$
+  //    fetch counterEntity using counterValuesService.find(id)
+  //    update counterEntity using counterValuesService.update(id, {value: 456})
 
   constructor(
     private actions$: Actions,

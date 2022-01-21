@@ -18,12 +18,6 @@ export const incrementAsyncCounterSuccess = createAction(
   props<{ value: number }>()
 );
 
-export const decrementAsyncCounterRequest = createAction(
-  AsyncCounterActionTypes.DecrementAsyncCounterRequest,
-  props<{ id: number; decBy: number; }>()
-);
+// TODO: decrementAsyncCounterRequest
 
-export const decrementAsyncCounterSuccess = createAction(
-  AsyncCounterActionTypes.DecrementAsyncCounterSuccess,
-  props<{ value: number; }>()
-);
+// TODO: decrementAsyncCounterSuccess
