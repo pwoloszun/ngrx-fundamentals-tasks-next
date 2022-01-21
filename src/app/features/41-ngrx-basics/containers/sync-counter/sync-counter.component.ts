@@ -25,11 +25,6 @@ export class SyncCounterComponent {
   constructor(private store: Store<any>) { }
 
   increment() {
-    // const action = {
-    //   type: '[Counter] gggg',
-    //   ggg: 123,
-    //   hhhJjj: 'qq'
-    // };
     const action = actions.incrementCounter({
       incBy: 10
     });
@@ -37,6 +32,8 @@ export class SyncCounterComponent {
   }
 
   decrement() {
+    const decBy = 5;
+    const timestamp = Date.now();
     // TODO
   }
 
