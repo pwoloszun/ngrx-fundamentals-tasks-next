@@ -19,7 +19,8 @@ export class MailDialogComponent implements OnInit {
 
   sendHandler() {
     const emailEntity = this.getEntity();
-    this.store.dispatch(actions.sendMailStarted(emailEntity));
+
+    // TODO
   }
 
   closeHandler() {

@@ -33,73 +33,7 @@ export const initialState: SliceState = {
 export const reducer = createReducer(
   initialState,
 
-  on(actions.mailDialogOpened, (state) => {
-    return produce(state, (draft) => {
-      draft.isMailOpened = true;
-    });
-  }),
-
-  on(actions.mailDialogClosed, (state) => {
-    return produce(state, (draft) => {
-      draft.isMailOpened = false;
-    });
-  }),
-
-  on(actions.sendMailStarted, (state, mailParams) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.SendingCancellable;
-      draft.toSend = mailParams;
-      draft.isMailOpened = false;
-    });
-  }),
-
-  on(actions.cancelSendMailStarted, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.SendingCancelled;
-      draft.toSend = null;
-      draft.isMailOpened = true;
-    });
-  }),
-
-  on(actions.cancelSendMailEnded, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.Idle;
-    });
-  }),
-
-  on(actions.timeToCancelExpired, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.SendingReversible;
-    });
-  }),
-
-  on(actions.revertSendMailStarted, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.SendingReverted;
-      draft.toSend = null;
-      draft.isMailOpened = true;
-    });
-  }),
-
-  on(actions.revertSendMailEnded, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.Idle;
-    });
-  }),
-
-  on(actions.timeToRevertExpired, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.Sent;
-    });
-  }),
-
-
-  on(actions.sendMailSuccessfullyEnded, (state) => {
-    return produce(state, (draft) => {
-      draft.mailSendStage = MailSendStage.Idle;
-      draft.toSend = null;
-    });
-  }),
+  // TODO: event storming + events impl
 
 );
 
