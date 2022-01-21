@@ -23,30 +23,23 @@ export interface ApplicationState {
 const asyncCounterReducer = createReducer(
   initialState,
 
-  on(actions.incrementAsyncCounterRequest, (state) => {
-    return produce(state, (draft) => {
-      draft.isLoading = true;
-    });
-  }),
+  on(actions.incrementAsyncCounterRequest,
+    actions.decrementAsyncCounterRequest, (state) => {
+      return produce(state, (draft) => {
+        draft.isLoading = true;
+      });
+    }),
 
-  on(actions.incrementAsyncCounterSuccess, (state, action) => {
-    const { value } = action;
+  on(actions.incrementAsyncCounterSuccess,
+    actions.decrementAsyncCounterSuccess, (state, action) => {
+      const { value } = action;
 
-    return produce(state, (draft) => {
-      draft.isLoading = false;
-      draft.asyncValue = value;
-    });
-  }),
+      return produce(state, (draft) => {
+        draft.isLoading = false;
+        draft.asyncValue = value;
+      });
+    }),
 
-  on(actions.decrementAsyncCounterRequest, (state) => {
-    // TODO
-    return state;
-  }),
-
-  on(actions.decrementAsyncCounterSuccess, (state, action) => {
-    // TODO
-    return state;
-  }),
 );
 
 export function reducer(state: SliceState | undefined, action: Action): SliceState {

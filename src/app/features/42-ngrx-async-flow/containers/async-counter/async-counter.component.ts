@@ -29,7 +29,11 @@ export class AsyncCounterComponent {
   }
 
   decrement() {
-    // TODO: decrement by 5
+    const action = actions.decrementAsyncCounterRequest({
+      id: this.id,
+      decBy: 5
+    });
+    this.store.dispatch(action);
   }
 
   reset() {
