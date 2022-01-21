@@ -1,7 +1,0 @@
-.message-list-item:nth-child(odd) {
-  background-color: #eee;
-}
-
-.message-list-item:hover {
-  background-color: #ddd;
-}

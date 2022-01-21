@@ -31,10 +31,10 @@ const appRoutes: Routes = [
     path: 'many-room-detectors',
     loadChildren: () => import('./features/46-many-room-detectors/many-room-detectors.module').then(m => m.ManyRoomDetectorsModule),
   },
-  {
-    path: 'my-mail',
-    loadChildren: () => import('./features/47-my-mail/my-mail.module').then(m => m.MyMailModule),
-  },
+  // {
+  //   path: 'my-mail',
+  //   loadChildren: () => import('./features/47-my-mail/my-mail.module').then(m => m.MyMailModule),
+  // },
   {
     path: 'cancelable-mail',
     loadChildren: () => import('./features/48-cancelable-mail/cancelable-mail.module').then(m => m.CancelableMailModule),
