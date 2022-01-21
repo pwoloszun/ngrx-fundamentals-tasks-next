@@ -38,8 +38,15 @@ const asyncCounterReducer = createReducer(
     });
   }),
 
-  // TODO decrement: REQ + SUCC
+  on(actions.decrementAsyncCounterRequest, (state) => {
+    // TODO
+    return state;
+  }),
 
+  on(actions.decrementAsyncCounterSuccess, (state, action) => {
+    // TODO
+    return state;
+  }),
 );
 
 export function reducer(state: SliceState | undefined, action: Action): SliceState {
