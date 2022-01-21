@@ -24,13 +24,18 @@ const asyncCounterReducer = createReducer(
   initialState,
 
   on(actions.incrementAsyncCounterRequest, (state) => {
-    // TODO
-    return state;
+    return produce(state, (draft) => {
+      draft.isLoading = true;
+    });
   }),
 
   on(actions.incrementAsyncCounterSuccess, (state, action) => {
-    // TODO
-    return state;
+    const { value } = action;
+
+    return produce(state, (draft) => {
+      draft.isLoading = false;
+      draft.asyncValue = value;
+    });
   }),
 
   // TODO decrement: REQ + SUCC

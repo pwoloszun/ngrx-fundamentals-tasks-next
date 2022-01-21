@@ -21,17 +21,22 @@ export class AsyncCounterEffects {
   );
 
   incrementAsyncCounter$ = createEffect(() => {
-    return this.actions$.pipe(
-      // TODO
-      // filter only actions of type: actions.incrementAsyncCounterRequest
-      // delay
-      // concat with asyncCounterValue$
-      // calculate next value
-      // dispatch SUCC action
 
-      // TODO: error handling
+    return this.actions$.pipe(
+      ofType(actions.incrementAsyncCounterRequest),
+      delay(DELAY_IN_MS),
+      concatLatestFrom(() => this.asyncCounterValue$),
+      map(([action, asyncValue]) => {
+        const { incBy } = action;
+        const nextValue = asyncValue + incBy;
+        const nextAction = actions.incrementAsyncCounterSuccess({
+          value: nextValue
+        });
+        return nextAction;
+      })
     );
-  }, { dispatch: false });
+
+  });
 
   // TODO: decrementAsyncCounter$
   //    fetch counterEntity using counterValuesService.find(id)

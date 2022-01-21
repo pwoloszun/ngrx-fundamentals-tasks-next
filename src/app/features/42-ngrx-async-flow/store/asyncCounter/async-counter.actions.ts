@@ -2,10 +2,10 @@ import { createAction, props } from '@ngrx/store';
 
 export enum AsyncCounterActionTypes {
   IncrementAsyncCounterRequest = '[AsyncCounter] Increment AsyncCounter Request',
-  IncrementAsyncCounterSuccess = '[AsyncCounter] Increment AsyncCounter Success',
+  IncrementAsyncCounterSuccess = '[Counter API] Increment AsyncCounter Success',
 
   DecrementAsyncCounterRequest = '[AsyncCounter] Decrement AsyncCounter Request',
-  DecrementAsyncCounterSuccess = '[AsyncCounter] Decrement AsyncCounter Success',
+  DecrementAsyncCounterSuccess = '[Counter API] Decrement AsyncCounter Success',
 }
 
 export const incrementAsyncCounterRequest = createAction(
@@ -21,3 +21,11 @@ export const incrementAsyncCounterSuccess = createAction(
 // TODO: decrementAsyncCounterRequest
 
 // TODO: decrementAsyncCounterSuccess
+
+
+
+// REQUEST  => Success
+//          => Error
+
+// Pending  => Complete
+//          => Rejected
