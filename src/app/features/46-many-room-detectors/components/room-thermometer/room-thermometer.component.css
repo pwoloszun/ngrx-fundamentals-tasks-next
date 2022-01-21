@@ -1,0 +1,27 @@
+.mat-card {
+  width: 320px;
+}
+
+.mat-raised-button {
+  margin: 0 0.25em;
+}
+
+.mat-cancel {
+  background-color: #aaa;
+  color: #fff
+}
+
+.temp-change {
+  color: #fff;
+  background-color: darkgray;
+  padding: 0.25em 0.5em;
+  font-weight: bold;
+}
+
+.temp-change.temp-up {
+  background-color: #f00;
+}
+
+.temp-change.temp-down {
+  background-color: #00f;
+}

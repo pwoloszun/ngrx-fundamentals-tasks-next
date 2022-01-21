@@ -1,0 +1,45 @@
+.my-form {
+  display: block;
+  width: 70%;
+  margin: 12px auto;
+  padding: 12px;
+  border: 1px solid #000;
+}
+
+.my-form div {
+  margin: 12px auto;
+  padding: 12px;
+  border-bottom: 1px inset #777;
+}
+
+.my-form label {
+  font-weight: bold;
+}
+
+.my-form .block-labels-cont label {
+  display: block;
+}
+
+.my-table td {
+  padding: 8px;
+}
+
+.my-table thead tr {
+  background-color: #55a;
+  color: #fff;
+}
+
+.my-table tbody tr:nth-child(even) {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+/* .my-form .ctrl-buttons-cont button {
+  background-color: #fff;
+  color: #000;
+}
+
+.my-form .ctrl-buttons-cont button:hover {
+  background-color: #000;
+  color: #fff;
+} */

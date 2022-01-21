@@ -1,0 +1,10 @@
+<h3>SyncCounter</h3>
+
+<nts-counter [value]="value$ | async"
+             [updatedAt]="updatedAt$ | async"
+             (increment)="increment()"
+             (decrement)="decrement()"
+             (reset)="reset()"
+></nts-counter>
+
+<h3>Square: {{ squareValue$ | async }}</h3>

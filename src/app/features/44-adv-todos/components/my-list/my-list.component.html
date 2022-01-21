@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>Items List ({{ items?.length }})</mat-card-title>
+
+  <mat-list role="list"
+            aria-label="Todo list">
+    <nts-my-list-item *ngFor="let item of items; index as i"
+                      [item]="item"
+                      [status]="allStatuses[i]"
+                      (remove)="handleRemove($event)"
+                      (edit)="handleEdit($event)"
+                      (saveEdit)="handleSaveEdit($event)"
+                      (cancelEdit)="handleCancelEdit($event)"></nts-my-list-item>
+  </mat-list>
+</mat-card>

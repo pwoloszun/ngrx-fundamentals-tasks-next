@@ -1,0 +1,20 @@
+<mat-selection-list (selectionChange)="selectMessagesHandler($event)">
+  <mat-list-option *ngFor="let item of items"
+                   [value]="item.id"
+                   [selected]="isSelected(item)"
+                   checkboxPosition="before"
+                   class="message-list-item">
+
+    <div fxLayout="row"
+         fxLayoutAlign="space-between center">
+      <h5 matLine>
+        <a [routerLink]="[item.id]">
+          {{ item.title }}
+        </a>
+      </h5>
+      <p matLine
+         class="demo-2"> {{ item.createdAt | date:'MMM d, HH:mm' }} </p>
+    </div>
+
+  </mat-list-option>
+</mat-selection-list>

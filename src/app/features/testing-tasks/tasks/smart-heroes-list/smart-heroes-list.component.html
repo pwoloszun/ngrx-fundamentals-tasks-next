@@ -1,0 +1,21 @@
+<ng-container *ngIf="heroes$ | async as heroes; else loadingTmpl;">
+
+  <nts-pure-list [items]="heroes">
+    <ng-template let-hero>
+      <div fxLayout="row"
+           fxLayoutAlign="space-around center">
+        <div>{{hero.name}}</div>
+        <div>{{hero.secretIdentity}}</div>
+      </div>
+    </ng-template>
+  </nts-pure-list>
+
+</ng-container>
+
+
+<ng-template #loadingTmpl>
+  <div fxLayout="row"
+       fxLayoutAlign="space-around center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

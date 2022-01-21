@@ -1,0 +1,13 @@
+.todos-form-container {
+  margin: 22px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container mat-form-field,
+.form-container button {
+  width: 100%;
+}

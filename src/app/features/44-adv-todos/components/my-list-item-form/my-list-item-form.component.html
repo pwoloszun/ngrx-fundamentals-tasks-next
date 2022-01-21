@@ -1,0 +1,27 @@
+<form fxLayout="row" fxLayoutAlign="space-around center">
+  <div fxFlex="30">
+    <mat-form-field>
+      <input [(ngModel)]="title"
+             matInput placeholder="Edit title" name="title"/>
+    </mat-form-field>
+  </div>
+  <div fxFlex="30">
+    <mat-form-field>
+      <input [(ngModel)]="description"
+             matInput placeholder="Edit description" name="description"/>
+    </mat-form-field>
+  </div>
+  <div fxFlex="30">
+    <button (click)="handleSaveEdit($event)"
+            [disabled]="title === ''"
+            mat-raised-button
+            color="save">
+      Save
+    </button>
+    <button (click)="handleCancelEdit($event)"
+            mat-raised-button
+            color="cancel">
+      Cancel
+    </button>
+  </div>
+</form>

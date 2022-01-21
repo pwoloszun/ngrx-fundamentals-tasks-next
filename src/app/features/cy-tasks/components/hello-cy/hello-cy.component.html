@@ -1,0 +1,12 @@
+<h3>Hello Cy</h3>
+
+<div>
+  <h3>Stale DOM</h3>
+  <ul aria-label="Hello Cy Messages">
+    <li *ngFor="let message of messages"
+        role="listitem">
+      {{message}}
+    </li>
+  </ul>
+  <button (click)="mutateMessageHandler(1)">Mutate index: 1</button>
+</div>

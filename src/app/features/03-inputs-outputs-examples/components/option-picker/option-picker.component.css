@@ -1,0 +1,12 @@
+.option-picker {
+  padding: 16px;
+  border: 1px solid #000;
+  margin: 8px auto;
+  background-color: aliceblue;
+}
+
+.option-picker button {
+  background-color: darkgreen;
+  color: #fff;
+  padding: 8px;
+}

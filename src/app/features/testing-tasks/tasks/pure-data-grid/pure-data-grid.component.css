@@ -1,0 +1,12 @@
+.my-grid {
+  width: 100%;
+}
+
+.mat-row .mat-cell {
+  cursor: pointer;
+}
+
+.highlighted {
+  background-color: aqua;
+}
+

@@ -1,0 +1,27 @@
+<h3>Advanced Todos</h3>
+
+<div>
+  <button (click)="handleStartExternalWS()">Start</button>
+  <button (click)="handleStopExternalWS()">Stop</button>
+</div>
+
+<div fxLayout="row"
+     fxLayoutAlign="center center">
+  <div fxFlex="66">
+    <mat-progress-bar *ngIf="isFetchingMany$ | async; else todosList"
+                      aria-label="Load todos progressbar"
+                      mode="indeterminate"></mat-progress-bar>
+
+    <nts-my-todo-form (createItem)="handleCreateTodo($event)"></nts-my-todo-form>
+  </div>
+</div>
+
+<ng-template #todosList>
+  <nts-my-list [items]="todos$ | async"
+               [statuses]="statuses$ | async"
+               (remove)="handleRemove($event)"
+               (edit)="handleEdit($event)"
+               (saveEdit)="handleSaveEdit($event)"
+               (cancelEdit)="handleCancelEdit($event)">
+  </nts-my-list>
+</ng-template>

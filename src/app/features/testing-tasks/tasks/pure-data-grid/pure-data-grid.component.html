@@ -1,0 +1,26 @@
+<mat-card>
+  <table mat-table
+         [dataSource]="items || []"
+         class="mat-elevation-z8 my-grid">
+
+    <!-- header cells def -->
+    <ng-container *ngFor="let meta of metaData"
+                  [matColumnDef]="meta.value">
+      <th mat-header-cell
+          *matHeaderCellDef> {{meta.text}} </th>
+      <td mat-cell
+          *matCellDef="let element"> {{element[meta.value]}} </td>
+    </ng-container>
+
+    <!-- header def -->
+    <tr mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+
+    <!-- row def -->
+    <tr mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+        [ngClass]="{'highlighted': selectedItem?.id === row.id}"
+        (click)="onRowClick(row)"
+        [attr.aria-selected]="selectedItem?.id === row.id"></tr>
+  </table>
+</mat-card>

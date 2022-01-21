@@ -1,0 +1,24 @@
+<mat-tab-group [selectedIndex]="tabSelectedIndex$ | async"
+               (selectedIndexChange)="categoryChangeHandler($event)">
+
+  <mat-tab *ngFor="let category of categories$ | async">
+    <ng-template mat-tab-label>
+      <mat-icon>
+        {{ getIconBy(category) }}
+      </mat-icon>
+      <span [matBadge]="getUnreadCountBy$(category) | async"
+            matBadgeOverlap="false"
+            matBadgeColor="accent">
+        {{ category.text }} ({{ getTotalCountBy$(category) | async }})
+      </span>
+    </ng-template>
+
+    <div>
+      <nts-message-list [items]="getMessagesBy$(category) | async"
+                        [selectedIds]="getSelectedMessageIdsBy$(category) | async"
+                        (selectItem)="selectMessageHandler(category, $event)">
+      </nts-message-list>
+    </div>
+  </mat-tab>
+
+</mat-tab-group>

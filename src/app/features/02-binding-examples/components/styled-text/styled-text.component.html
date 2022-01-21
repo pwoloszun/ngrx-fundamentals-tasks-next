@@ -1,0 +1,18 @@
+<div class="styled-text">
+  <h3 class="headline mb-0">StyledText</h3>
+  <p [ngClass]="textCssClasses">{{exampleText}}</p>
+  <div>
+    <div>
+      <input (change)="toggleCssClass('isBold')" type="checkbox" id="bold" />
+      <label for="bold">Bold</label>
+    </div>
+    <div>
+      <input (change)="toggleCssClass('isItalic')" type="checkbox" id="italic" />
+      <label for="italic">Italic</label>
+    </div>
+    <div>
+      <input (change)="toggleCssClass('isUnderline')" type="checkbox" id="underline" />
+      <label for="underline">Underline</label>
+    </div>
+  </div>
+</div>

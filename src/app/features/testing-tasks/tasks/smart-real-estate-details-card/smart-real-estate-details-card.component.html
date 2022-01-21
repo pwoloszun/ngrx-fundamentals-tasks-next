@@ -1,0 +1,65 @@
+<!-- <ng-container *ngIf="(realEstate$ | async) as entity"> -->
+<ng-container *ngrxLet="realEstate$ as entity">
+
+  <ng-container [ngSwitch]="status$ | async">
+
+    <ng-container *ngSwitchCase="'SUCCESS'">
+      <nts-pure-my-card>
+        <div slot="header"
+             role="heading"
+             aria-label="Real Estate Heading">
+          Street Addr.: {{entity.street}}
+        </div>
+
+        <div slot="content"
+             role="region"
+             aria-label="Real Estate Content">
+          <p>Price: {{entity.price}}</p>
+          <p>Type: {{entity.type}}</p>
+          <p>Geo. coordinates: ({{entity.lat | number: '1.2-2'}}, {{entity.lng | number: '1.2-2'}})</p>
+        </div>
+
+        <div slot="footer"
+             role="contentinfo"
+             aria-label="Real Estate Footer ">
+          <small>All rights reserved.</small>
+        </div>
+      </nts-pure-my-card>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'PENDING'">
+      <nts-pure-my-card>
+        <div slot="header"
+             role="heading"
+             aria-label="Real Estate Heading">
+          Loading...
+        </div>
+
+        <div slot="content"
+             role="region"
+             aria-label="Real Estate Content">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+
+        <div slot="footer"
+             role="contentinfo"
+             aria-label="Real Estate Footer">
+          &nbsp;
+        </div>
+      </nts-pure-my-card>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'ERROR'">
+      <div>
+        <h3>ERROR:</h3>
+        <code>{{ error$ | async | json }}</code>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'IDLE'">
+      <h3>idle TODO</h3>
+    </ng-container>
+
+  </ng-container>
+
+</ng-container>

@@ -1,0 +1,30 @@
+<h3>Many room detectors</h3>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="84">
+    <mat-progress-bar *ngIf="isManyLoading$ | async; else allRoomDetectorsPanel"
+                      mode="indeterminate"
+    ></mat-progress-bar>
+
+    <mat-grid-list cols="3" rowHeight="2:1" gutterSize="8">
+      <mat-grid-tile *ngFor="let roomDetector of roomDetectors$ | async">
+
+        <nts-room-thermometer [value]="roomDetector"
+                              (startMeasurement)="handleStart($event)"
+                              (stopMeasurement)="handleStop($event)"
+        ></nts-room-thermometer>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+</div>
+
+<ng-template #allRoomDetectorsPanel>
+  <div>
+    <button (click)="handleStopAll()"
+            mat-raised-button color="warn">
+      Stop ALL in BG
+    </button>
+  </div>
+</ng-template>

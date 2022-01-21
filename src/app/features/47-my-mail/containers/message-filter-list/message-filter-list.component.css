@@ -1,0 +1,14 @@
+.filter-list {
+  border-right: 1px solid #aaa;
+  padding: 6px;
+}
+
+.filter-item:hover {
+  background: rgba(63,81,181,.15);
+  color: #5f71d5;
+}
+
+.selected-filter-item {
+  background: rgba(63,81,181,.45);
+  color: #1f3195;
+}

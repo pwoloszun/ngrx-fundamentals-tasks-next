@@ -1,0 +1,77 @@
+<mat-card class="mat-elevation-z8">
+  <form [formGroup]="myForm"
+        (ngSubmit)="submitHandler($event)"
+        autocomplete="off">
+
+    <div fxLayout="column"
+         fxLayoutAlign="space-around stretch">
+      <h3>Login form</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Login</mat-label>
+        <input formControlName="login"
+               matInput
+               placeholder="Enter Login"
+               type="text" />
+        <mat-error *ngIf="loginCtrl.invalid">
+          {{loginErrorMessages.join('; ')}}
+          <!-- {{loginCtrl.errors | json}} -->
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password"
+               matInput
+               placeholder="Enter Password"
+               type="password" />
+        <mat-error *ngIf="passwordCtrl.invalid">
+          {{passwordErrorMessages.join('; ')}}
+          <!-- {{passwordCtrl.errors | json}} -->
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="roleId">
+          <mat-option *ngFor="let role of availableRoles"
+                      [value]="role.id">
+            {{ role.text }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="rememberMe">
+        Remember Me
+      </mat-checkbox>
+
+      <hr />
+      <button mat-raised-button
+              color="primary"
+              [disabled]="!myForm.valid"
+              type="submit">Login</button>
+
+
+      <mat-progress-bar *ngIf="isLoading"
+                        class="my-progress"
+                        mode="indeterminate"></mat-progress-bar>
+
+      <div [ngSwitch]="isLoggedIn$ | async">
+        <ng-container *ngIf="!isLoading">
+          <div *ngSwitchCase="true"
+               class="success-info">
+            Successfully logged in!
+          </div>
+          <div *ngSwitchCase="false"
+               class="wrong-info">
+            Wrong credentials
+          </div>
+          <div *ngSwitchDefault>&nbsp;</div>
+        </ng-container>
+      </div>
+
+      <!-- form info -->
+      <!-- <nts-form-info [formGroup]="myForm"></nts-form-info> -->
+    </div>
+  </form>
+</mat-card>

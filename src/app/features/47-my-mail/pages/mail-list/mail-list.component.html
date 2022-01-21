@@ -1,0 +1,31 @@
+<div>
+  <button (click)="startWsHandler()">Start</button>
+  <button (click)="stopWsHandler()">Stop</button>
+</div>
+
+<div fxLayout="column"
+     fxLayoutAlign="center end">
+  <nts-mail-context-menu></nts-mail-context-menu>
+</div>
+<hr />
+<div fxLayout="row"
+     fxLayoutAlign="space-around start">
+
+  <div fxFlex="20">
+    <div>
+      <button (click)="openNewMessageHandler()"
+              mat-raised-button
+              color="accent">
+        <mat-icon>add_circle</mat-icon>
+        New Message
+      </button>
+    </div>
+
+    <nts-message-filter-list></nts-message-filter-list>
+  </div>
+
+  <div fxFlex="80">
+    <nts-message-by-category-tabs></nts-message-by-category-tabs>
+  </div>
+
+</div>

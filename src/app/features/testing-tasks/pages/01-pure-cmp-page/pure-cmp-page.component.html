@@ -1,0 +1,49 @@
+<h3>pure-cmp-page</h3>
+
+
+<h5>Currently selected product: {{selectedProduct?.text}}</h5>
+<nts-pure-option-picker [title]="labelText"
+                        [items]="allProducts"
+                        [selectedItem]="selectedProduct"
+                        (itemSelect)="selectProductHandler($event)"></nts-pure-option-picker>
+<hr />
+
+
+<!--
+<nts-pure-list [items]="realEsates$ | async">
+  <ng-template let-realEstate
+               let-i="index">
+    <h3 matLine>Street: {{realEstate.street}}</h3>
+    <p matLine>
+      <small>{{i + 1}} Price: {{realEstate.price}}</small>
+    </p>
+  </ng-template>
+</nts-pure-list>
+<hr />
+ -->
+
+<!--
+<nts-pure-data-grid [items]="realEsates$ | async"
+                    [metaData]="estatesMeta"
+                    [selectedItem]="selectedRealEstate"
+                    (itemClick)="selectReaclEstateHandler($event)"></nts-pure-data-grid>
+<hr />
+ -->
+
+<!--
+<nts-pure-my-card>
+  <div slot="header">
+    <h3>Lorem header</h3>
+  </div>
+  <div slot="footer">Lorem footer</div>
+
+  <div slot="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam tortor, porttitor aliquet diam porta,
+      venenatis mattis justo. Integer non orci at sapien cursus elementum. Integer laoreet enim id massa ullamcorper
+      tempus. Suspendisse potenti. Ut aliquam lectus orci, quis tincidunt dui porttitor id. Donec id molestie massa.
+      Curabitur finibus, dolor at imperdiet porttitor, ligula odio faucibus nunc, nec iaculis lectus leo et augue. Duis
+      vehicula pulvinar erat sed viverra.</p>
+  </div>
+</nts-pure-my-card>
+<hr />
+-->

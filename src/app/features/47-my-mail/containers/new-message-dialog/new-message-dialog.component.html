@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Create New Message</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="titleTmp" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+
+    <mat-select [value]="selectedCategoryId" (selectionChange)="changeCategoryHandler($event.value)">
+      <mat-option *ngFor="let category of categories$ | async" [value]="category.id">
+        {{ category.text }}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button (click)="cancelHandler()" mat-raised-button>Cancel</button>
+
+  <button (click)="createNewMessageHandler()" [disabled]="!isFormValid" mat-raised-button color="primary"
+    cdkFocusInitial>
+    Create
+  </button>
+</div>

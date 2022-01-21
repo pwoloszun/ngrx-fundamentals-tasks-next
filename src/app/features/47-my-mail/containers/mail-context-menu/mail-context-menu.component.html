@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill"
+                class="mail-context-menu">
+  <mat-label>Move to</mat-label>
+
+  <mat-select (selectionChange)="moveToCategoryHandler($event.value)"
+              [disabled]="!(hasAnySelectedMessagesInCurrentCategory$ | async)">
+
+    <mat-option *ngFor="let category of notCurrentCategories$ | async"
+                [value]="category?.id">
+      {{ category?.text }}
+    </mat-option>
+
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,29 @@
+<p>mail-details works!</p>
+
+<div fxLayout="row"
+     fxLayoutAlign="space-between center">
+
+
+  <button [routerLink]="['../', prevMessageId$ | async]"
+          [disabled]="isPrevDisabled$ | async"
+          mat-stroked-button>
+    Previous Mail
+  </button>
+
+  <button [routerLink]="['../', nextMessageId$ | async]"
+          [disabled]="isNextDisabled$ | async"
+          mat-stroked-button>
+    Next Mail
+  </button>
+
+  <button routerLink="../"
+          mat-stroked-button>
+    Back to Mail List
+  </button>
+</div>
+
+<div *ngIf="(message$ | async) as message">
+  <h3>Title: {{ message.title }}</h3>
+
+  <p>Content: {{ message.content }}</p>
+</div>

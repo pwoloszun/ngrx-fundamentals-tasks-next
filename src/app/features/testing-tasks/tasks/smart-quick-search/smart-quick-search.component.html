@@ -1,0 +1,28 @@
+<mat-card class="mat-elevation-z8">
+  <div fxLayout="column"
+       fxLayoutAlign="space-around stretch">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput
+             [formControl]="searchCtrl"
+             placeholder="Your search phrase"
+             type="search" />
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-hint>Type NBA player name, position, etc</mat-hint>
+    </mat-form-field>
+
+    <mat-progress-bar *ngIf="isLoading"
+                      mode="indeterminate"></mat-progress-bar>
+
+    <ng-container *ngIf="searchResults$ | async as results">
+      <h3>Search results</h3>
+      <nts-pure-list [items]="results">
+        <ng-template let-result>
+          <p>{{result.last_name}}, {{result.first_name}} ({{result.position}})</p>
+        </ng-template>
+      </nts-pure-list>
+    </ng-container>
+
+  </div>
+</mat-card>

@@ -1,0 +1,81 @@
+<h3>Advanced Querying examples</h3>
+
+<h5 data-testid="greeting">hello world!</h5>
+
+<hr />
+
+<h5 data-testid="full-name">Ed</h5>
+<div data-testid="person-panel">
+  <label>Name</label>
+  <h5 data-testid="full-name">Bob</h5>
+</div>
+<h5 data-testid="full-name">Kate</h5>
+
+<hr />
+
+<div>
+  <input placeholder="Your age?"
+         value="5"
+         type="number" />
+  <input placeholder="What's your name?"
+         type="text" />
+</div>
+
+<div data-testid="my-label-cont">
+  <label>
+    <span>Imba!</span>
+    <input value="qq@qq.qq"
+           type="email" />
+  </label>
+
+  <label for='imba-2'>
+    mail 2
+  </label>
+  <input id="imba-2"
+         value="aa@aa.aa"
+         type="email" />
+
+</div>
+
+<hr />
+
+<div data-testid="async-people-cont">
+  <h3>People</h3>
+  <ul>
+    <li *ngFor="let person of people">
+      {{ person.name }}
+    </li>
+  </ul>
+</div>
+
+<hr />
+
+<div data-testid="async-todos-cont">
+  <h3>Todos</h3>
+  <ul>
+    <li *ngFor="let todo of todos$ | async">
+      {{ todo.title }}
+    </li>
+  </ul>
+</div>
+
+<hr />
+
+<div data-testid="async-infinite-feeds-cont">
+  <h3>Infinite Feeds</h3>
+  <div class="search-results"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       (scrolled)="onScrollHandler()"
+       [scrollWindow]="false"
+       data-testid="feeds-inifinite-scroll-cont">
+    <ul>
+      <li *ngFor="let feed of feeds$ | async">
+        {{ feed.title }}
+      </li>
+    </ul>
+    <mat-spinner *ngIf="isLoading$ | async"
+                 data-testid="loading-feeds-spinner"></mat-spinner>
+  </div>
+</div>

@@ -1,0 +1,207 @@
+<h3>Assertions</h3>
+
+<!-- testid="elements-assertions-cont" -->
+<div data-testid="first-assertions-cont">
+  <div class="items-cont">
+    <h3>Todos</h3>
+    <p>
+      item <span>1</span>
+      <small>(first)</small>
+    </p>
+    <p class="selected-item">item 2</p>
+    <p>item 3</p>
+    <p class="disabled-item">item 4</p>
+  </div>
+
+  <div>
+    <table class="my-table">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Secret identity</td>
+          <td>City</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>row 1, cell 1</td>
+          <td>row 1, cell 2</td>
+          <td>row 1, cell 3</td>
+        </tr>
+        <tr>
+          <td>row 2, cell 1</td>
+          <td>row 2, cell 2</td>
+          <td>row 2, cell 3</td>
+        </tr>
+        <tr>
+          <td>row 3, cell 1</td>
+          <td>row 3, cell 2</td>
+          <td>row 3, cell 3</td>
+        </tr>
+        <tr>
+          <td>row 4, cell 1</td>
+          <td>row 4, cell 2</td>
+          <td>row 4, cell 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <button>1st btn</button>
+    <button>1st btn</button>
+    <button>1st btn</button>
+    <button>1st btn</button>
+  </div>
+</div>
+<hr />
+
+
+<!-- testid="form-assertions-cont" -->
+<div data-testid="form-assertions-cont">
+  <form class="my-form"
+        (ngSubmit)="submitHandler()">
+    <h3>User Info Form</h3>
+    <div>
+      <label>
+        First Name
+        <input value="Bob" />
+      </label>
+      <label for="last-name">
+        Last Name
+      </label>
+      <input value="Smith"
+             id="last-name" />
+    </div>
+
+    <div>
+      <label>
+        Login
+        <input value="Bob" />
+      </label>
+      <label for="passwd">
+        Password
+      </label>
+      <input value="123456"
+             type="password"
+             id="passwd" />
+    </div>
+
+    <div>
+      <label>
+        Bio
+        <textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+      </label>
+    </div>
+
+    <div>
+      <label for="selected-country">Country</label>
+      <select id="selected-country">
+        <option>Poland</option>
+        <option>USA</option>
+        <option selected>Brazil</option>
+        <option>Germany</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="selected-dishes">Favourite dishes</label>
+      <select multiple>
+        <option selected>Pizza</option>
+        <option>Burger</option>
+        <option selected>Pork Chop</option>
+        <option>Fruit Salad</option>
+        <option>tomatoe Soup</option>
+      </select>
+    </div>
+
+    <div class="block-labels-cont">
+      <h5>Choose Your interests</h5>
+      <label>
+        <input type="checkbox"
+               value="books" />
+        Books
+      </label>
+      <label>
+        <input type="checkbox"
+               value="bball"
+               checked />
+        Basketball
+      </label>
+      <label>
+        <input type="checkbox"
+               value="soccer" />
+        Soccer
+      </label>
+      <label>
+        <input type="checkbox"
+               value="tabletop-games" />
+        Video Games
+      </label>
+      <label>
+        <input type="checkbox"
+               value="tabletop-games"
+               checked />
+        Tabletop Games
+      </label>
+    </div>
+
+    <div class="block-labels-cont">
+      <h5>How do you want to contact?</h5>
+      <label>
+        <input name="contact-form"
+               type="radio"
+               value="email" />
+        Mail
+      </label>
+      <label>
+        <input name="contact-form"
+               type="radio"
+               value="phone" />
+        Phone
+      </label>
+      <label>
+        <input name="contact-form"
+               type="radio"
+               value="skype" />
+        Skype
+      </label>
+    </div>
+
+    <div class="block-labels-cont">
+      <h5>How do you want to contact?</h5>
+      <label>
+        <input name="contact-form"
+               type="radio"
+               value="email" />
+        Mail
+      </label>
+      <label>
+        <input name="contact-form"
+               type="radio"
+               value="phone" />
+        Phone
+      </label>
+      <label>
+        <input name="contact-form"
+               type="radio"
+               value="skype" />
+        Skype
+      </label>
+    </div>
+
+    <div>
+      <label>Clicked button: {{ clickedButton }}</label>
+    </div>
+    <div class="ctrl-buttons-cont">
+      <button type="submit"
+              (click)="saveHandler()">Save</button>
+      <button type="button"
+              (click)="saveDraftHandler()">Save Draft</button>
+      <button type="reset"
+              (click)="cancelHandler()">Cancel</button>
+      <button type="menu"
+              (click)="showOptionsHandler()">Other Options</button>
+    </div>
+  </form>
+</div>
+<hr />

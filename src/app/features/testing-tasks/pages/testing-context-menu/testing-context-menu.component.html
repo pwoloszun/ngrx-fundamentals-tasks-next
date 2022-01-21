@@ -1,0 +1,11 @@
+<nav class="menu-cont">
+
+  <a *ngFor="let link of links"
+     mat-raised-button
+     color="secondary"
+     [routerLinkActive]="['mat-primary']"
+     [routerLink]="[link.path]">
+    {{link.text}}
+  </a>
+
+</nav>

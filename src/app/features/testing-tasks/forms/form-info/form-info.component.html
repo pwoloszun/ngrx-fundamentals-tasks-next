@@ -1,0 +1,23 @@
+<div class="form-info">
+  <h5>Form info</h5>
+  <div>
+    Value:
+    <pre>{{ formGroup.value | json }}</pre>
+  </div>
+
+  <div>
+    Status: {{ formGroup.status }}
+  </div>
+
+  <div>
+    Errors: {{ formGroup.errors | json }}
+  </div>
+
+  <div>
+    Touched: {{ formGroup.touched | json }}
+  </div>
+
+  <div>
+    Dirty: {{ formGroup.dirty | json }}
+  </div>
+</div>

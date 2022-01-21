@@ -1,0 +1,9 @@
+<mat-list class="filter-list">
+  <mat-list-item *ngFor="let filter of messageFilters"
+    (click)="selectFilterHandler(filter)"
+  class="filter-item"
+    [ngClass]="{'selected-filter-item': filter === selectedMessageFilter}">
+    <mat-icon matListIcon>folder</mat-icon>
+    <h3 matLine> {{ filter.text }} </h3>
+  </mat-list-item>
+</mat-list>

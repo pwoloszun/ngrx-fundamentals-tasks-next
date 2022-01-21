@@ -1,0 +1,11 @@
+<h3>AsyncCounter</h3>
+
+<nts-counter [value]="value$ | async"
+             (increment)="increment()"
+             (decrement)="decrement()"
+             (reset)="reset()"></nts-counter>
+
+<h3>isLoading$: {{ isLoading$ | async }}</h3>
+
+<mat-progress-bar *ngIf="isLoading$ | async"
+                  mode="indeterminate"></mat-progress-bar>

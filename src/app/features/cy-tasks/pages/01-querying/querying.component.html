@@ -1,0 +1,72 @@
+<h3>Querying examples</h3>
+
+
+<nts-hello-cy></nts-hello-cy>
+
+
+<h5>hello world!</h5>
+<hr />
+
+
+<!-- testid="greeting-card" -->
+<mat-card>
+  <mat-card-title back="primary">
+    <h5>Other hello world!</h5>
+  </mat-card-title>
+</mat-card>
+<hr />
+
+
+<!-- testid="first-name" -->
+<h5 data-testid="first-name">Ed</h5>
+<!-- testid="person-panel" -->
+<div data-testid="person-panel">
+  <label>Name</label>
+  <!-- testid="first-name" -->
+  <h5 data-testid="first-name">Bob</h5>
+</div>
+<!-- testid="first-name" -->
+<h5 data-testid="first-name">Kate</h5>
+<hr />
+
+
+<!-- testid="my-label-cont" -->
+<div>
+  <label>
+    <span>Imba!</span>
+    <input value="qq@qq.qq"
+           type="email" />
+  </label>
+
+  <label for='imba-2'>
+    mail 2
+  </label>
+  <input id="imba-2"
+         value="aa@aa.aa"
+         type="email" />
+</div>
+<hr />
+
+
+<!-- testid="async-people-cont" -->
+<div data-testid="async-people-cont">
+  <h3>People</h3>
+  <ul>
+    <li *ngFor="let person of people">
+      {{ person.name }}
+    </li>
+  </ul>
+</div>
+<hr />
+
+
+<!-- testid="async-todos-cont" -->
+<div>
+  <h3>Todos</h3>
+  <ul>
+    <li *ngFor="let todo of todos$ | async">
+      {{ todo.title }}
+    </li>
+  </ul>
+</div>
+<hr />

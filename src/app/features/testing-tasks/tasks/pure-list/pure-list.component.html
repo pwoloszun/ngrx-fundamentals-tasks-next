@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-list class="mat-elevation-z8"
+            role="list">
+    <ng-container *ngFor="let item of items; let i = index">
+      <mat-list-item role="listitem">
+        <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item, index: i}"
+                      matLine></ng-container>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</mat-card>

@@ -1,0 +1,15 @@
+<div class="parent-child">
+  <h3>Child</h3>
+  <div>
+    <p>
+      Child received: {{text}}
+    </p>
+  </div>
+  <div>
+    <input [(ngModel)]="childText"/>
+    <p>Child text: {{childText}}</p>
+  </div>
+  <div>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

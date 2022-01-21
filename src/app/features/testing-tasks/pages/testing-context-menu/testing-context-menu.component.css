@@ -1,0 +1,9 @@
+.menu-cont {
+  margin: 6px auto;
+}
+
+.menu-cont a,
+.menu-cont button {
+  width: 10%;
+  margin: 0 2px;
+}

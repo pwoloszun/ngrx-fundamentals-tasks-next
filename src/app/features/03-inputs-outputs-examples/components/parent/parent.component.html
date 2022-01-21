@@ -1,0 +1,15 @@
+<div class="parent">
+  <h3>Parent</h3>
+  <div>
+    <input [(ngModel)]="parentMsg"/>
+    <p>
+      Parent: {{parentMsg}}
+    </p>
+  </div>
+  <div>
+    <nts-child
+      [text]="parentMsg"
+      (messageSent)="logMessage($event)"
+    ></nts-child>
+  </div>
+</div>

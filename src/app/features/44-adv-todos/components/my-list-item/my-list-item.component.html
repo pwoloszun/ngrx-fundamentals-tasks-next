@@ -1,0 +1,47 @@
+<mat-list-item role="listitem"
+               aria-label="Todo item">
+  <mat-divider></mat-divider>
+  <div matLine>&nbsp;</div>
+  <div matLine>
+    <div *ngIf="!isEditing(); else editTemplate"
+         fxLayout="row"
+         fxLayoutAlign="space-around center">
+
+      <div fxFlex="40"
+           [ngClass]="{'disabled-text': isDisabled()}">
+        <h4 class="item-title">{{ item.title }}</h4>
+        <small>{{ item.description }}</small>
+      </div>
+
+      <div fxFlex="20">
+        <div *ngIf="isDisabled()"
+             fxLayout="row"
+             fxLayoutAlign="start center">
+          <mat-spinner [diameter]="30"></mat-spinner>
+          <small>{{ statusLabels[status] }}</small>
+        </div>
+      </div>
+
+      <div fxFlex="30">
+        <button (click)="handleEdit()"
+                [disabled]="isDisabled()"
+                mat-raised-button
+                color="primary">
+          Edit
+        </button>
+        <button (click)="handleRemove()"
+                [disabled]="isDisabled()"
+                mat-raised-button
+                color="warn">
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-list-item>
+
+<ng-template #editTemplate>
+  <nts-my-list-item-form [item]="item"
+                         (saveEdit)="handleSaveEdit($event)"
+                         (cancelEdit)="handleCancelEdit()"></nts-my-list-item-form>
+</ng-template>
