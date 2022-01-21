@@ -8,14 +8,9 @@ export enum CounterActionTypes {
 
 export const incrementCounter = createAction(
   CounterActionTypes.IncrementCounter,
-  props<{ incBy: number; timestamp: number }>()
+  // props<{ incBy: number; }>()
 );
 
-export const decrementCounter = createAction(
-  CounterActionTypes.DecrementCounter,
-  props<{ decBy: number; timestamp: number }>()
-);
+// TODO decrementCounter
 
-export const resetCounter = createAction(
-  CounterActionTypes.ResetCounter,
-);
+// TODO resetCounter

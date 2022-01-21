@@ -6,21 +6,12 @@ const selectFeature = (state: ApplicationState) => {
   return state[counterFeatureKey];
 };
 
-export const selectCounterValue = createSelector(
-  selectFeature,
-  (state: SliceState) => {
-    return state.value;
-  }
-);
+export const selectCounterValue = (state: ApplicationState) => {
+  return -997; // TODO
+};
 
-export const selectCounterSquareValue = createSelector(
-  selectCounterValue,
-  (value: number) => {
-    return value ** 2;
-  }
-);
+// TODO
+// export const selectCounterUpdatedAt = null;
 
-export const selectCounterUpdatedAt = createSelector(
-  selectFeature,
-  (state: SliceState) => state.updatedAt
-);
+// TODO
+// export const selectFormattedUpdatedAt = null;

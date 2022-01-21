@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { of } from 'rxjs';
 
 import {
   actions,
@@ -13,34 +14,22 @@ import {
 })
 export class SyncCounterComponent {
 
-  value$ = this.store.pipe(
-    select(selectors.selectCounterValue)
-  );
-  updatedAt$ = this.store.pipe(
-    select(selectors.selectCounterUpdatedAt)
-  );
-  squareValue$ = this.store.pipe(
-    select(selectors.selectCounterSquareValue)
-  );
+  // TODO
+  value$ = of(123);
+  updatedAt$ = of(123456789);
+  squareValue$ = of(456);
 
-  constructor(private store: Store<any>) {
-  }
+  constructor(private store: Store<any>) { }
 
   increment() {
-    this.store.dispatch(actions.incrementCounter({
-      incBy: 10,
-      timestamp: Date.now()
-    }));
+    // TODO
   }
 
   decrement() {
-    this.store.dispatch(actions.decrementCounter({
-      decBy: 5,
-      timestamp: Date.now()
-    }));
+    // TODO
   }
 
   reset() {
-    this.store.dispatch(actions.resetCounter());
+    // TODO
   }
 }

@@ -11,7 +11,7 @@ export interface SliceState {
 }
 
 export const initialState: SliceState = {
-  value: 0,
+  value: 997,
   updatedAt: null,
 };
 
@@ -24,27 +24,15 @@ const counterReducer = createReducer(
   initialState,
 
   on(actions.incrementCounter, (state, action) => {
-    const { incBy, timestamp } = action;
-    return produce(state, (draftState) => {
-      draftState.value += incBy;
-      draftState.updatedAt = timestamp;
-    });
+    // TODO
+    const nextState = {};
+    return state;
   }),
 
-  on(actions.decrementCounter, (state, action) => {
-    const { decBy, timestamp } = action;
-    return produce(state, (draftState) => {
-      draftState.value -= decBy;
-      draftState.updatedAt = timestamp;
-    });
-  }),
+  // TODO: handle decrementCounter
 
-  on(actions.resetCounter, (state) => {
-    return produce(state, (draftState) => {
-      draftState.value = initialState.value;
-      draftState.updatedAt = initialState.updatedAt;
-    });
-  }),
+  // TODO: handle resetCounter
+
 );
 
 export function reducer(state: SliceState | undefined, action: Action): SliceState {
