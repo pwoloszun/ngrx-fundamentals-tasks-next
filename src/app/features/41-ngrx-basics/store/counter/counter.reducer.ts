@@ -5,6 +5,7 @@ import * as actions from './counter.actions';
 
 export const counterFeatureKey = 'counter';
 
+// design state shape
 export interface SliceState {
   value: number;
   updatedAt: number | null;
@@ -15,11 +16,8 @@ export const initialState: SliceState = {
   updatedAt: null,
 };
 
-// App STATE
-export interface ApplicationState {
-  [counterFeatureKey]: SliceState; // IMPORTANT: prop name must equal featureName
-}
 
+// ==========
 const counterReducer = createReducer(
   initialState,
 
@@ -37,4 +35,8 @@ const counterReducer = createReducer(
 
 export function reducer(state: SliceState | undefined, action: Action): SliceState {
   return counterReducer(state, action);
+}
+
+export interface ApplicationState {
+  [counterFeatureKey]: SliceState; // IMPORTANT: prop name must equal featureName
 }

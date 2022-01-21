@@ -1,7 +1,18 @@
-interface Action {
+interface Action { // events
   type: string;
-  // payload: any;
+  // [key: string]: any;
+  payload: any;
 }
+
+const action2: Action = {
+  type: '[DashboardPage] FetchProjectsSuccess',
+  payload: [
+    { id: 123, name: 'some project' }
+  ]
+}
+
+
+// FSA = Flux Standard Action
 
 class Store {
   dispatch(action: Action) { /*...*/ }
@@ -14,16 +25,28 @@ class Store {
 // in app:
 const store = new Store();
 
-
+// design state shape
 // global app state
 const state = {
+
+  // e-commerce example
+  // user: {},
+  // catalog: {},
+  // cart: {},
+  // account: {},
+  // ordersHistory: {},
+  // admin: {},
+
+
   counter: { // state slice
-    value: 997
+    value: 997,
   },
+
   users: { // users state slice
     entities: [],
     count: 123
   },
+
   todos: [] //state slice
 };
 
@@ -41,27 +64,46 @@ store.dispatch(action);
 
 
 
+
+
 // reducer(s)
-function usersReducer(state, action) {
-  const nextState = {};
+function usersReducer(stateSlice = {}, action) {
+  switch (action.type) {
+    case '[DashboardPage] LoadUsersRequest': {
+      const nextState = { ...state };
+      return nextState;
+    }
+    case '[Source2] Event2': {
+      const nextState2 = { ...state };
+      return nextState2;
+    }
+    default: {
+      return state;
+    }
+  }
+
+  const nextState = {
+    ...stateSlice,
+  };
   return nextState;
 }
 
-function counterReducer(state, action) {
+function counterReducer(stateSlice, action) {
   const nextState = {};
   return nextState;
 }
 
 
 function rootReducer(state, action) {
-  const nextUsersState = usersReducer(state.users, action);
   const nextCounterState = counterReducer(state.counter, action);
+  const nextUsersState = usersReducer(state.users, action);
 
-  return {
+  const nextAppState = {
     ...state,
     users: nextUsersState,
     counter: nextCounterState,
   };
+  return nextAppState;
 }
 
 
